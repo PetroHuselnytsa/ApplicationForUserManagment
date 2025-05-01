@@ -1,0 +1,69 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\addUser.js",
+      "PackagePath": "staticwebassets\\addUser.js"
+    },
+    {
+      "Id": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\1739095189632.png",
+      "PackagePath": "staticwebassets\\images\\1739095189632.png"
+    },
+    {
+      "Id": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\GG.png",
+      "PackagePath": "staticwebassets\\images\\GG.png"
+    },
+    {
+      "Id": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\checkMark.png",
+      "PackagePath": "staticwebassets\\images\\checkMark.png"
+    },
+    {
+      "Id": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\deleteIcon.png",
+      "PackagePath": "staticwebassets\\images\\deleteIcon.png"
+    },
+    {
+      "Id": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\editUser.png",
+      "PackagePath": "staticwebassets\\images\\editUser.png"
+    },
+    {
+      "Id": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\notFound.png",
+      "PackagePath": "staticwebassets\\images\\notFound.png"
+    },
+    {
+      "Id": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\userIcon.png",
+      "PackagePath": "staticwebassets\\images\\userIcon.png"
+    },
+    {
+      "Id": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\style.css",
+      "PackagePath": "staticwebassets\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\v.js",
+      "PackagePath": "staticwebassets\\v.js"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.TestFirstProject.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.TestFirstProject.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.TestFirstProject.props",
+      "PackagePath": "build\\TestFirstProject.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.TestFirstProject.props",
+      "PackagePath": "buildMultiTargeting\\TestFirstProject.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.TestFirstProject.props",
+      "PackagePath": "buildTransitive\\TestFirstProject.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

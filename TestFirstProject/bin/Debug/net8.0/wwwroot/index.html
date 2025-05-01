@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link href="style.css" rel="stylesheet" />
+    <script src="addUser.js" defer></script>
+    <script src="v.js" defer></script>
+    <title>User(CRUD-Project)</title>
+</head>
+
+<body>
+    <div class="formContainer">
+
+        <form class="userForm" action="/api/users" method="post">
+
+            <h2 class="formHeader">User Form</h2>
+            <div>
+                <input type="text" name="name" id="name" placeholder="NAME.." required class="formInput nameInput" maxlength="14">
+                <div class="name-output"></div>
+            </div>
+            <div>
+                <input type="number" name="age" id="age" placeholder="AGE.." required class="formInput ageInput">
+                <div class="age-output"></div>
+            </div>
+
+            <div class="buttonContainer">
+                <button class="button buttonA" type="submit">Add</button>
+                <button class="button buttonR" type="reset">Reset</button>
+            </div>
+
+        </form>
+
+        <div id="usersContainer">
+
+            <div class="userSearchContainer">
+                <input type="text" class="userSearch" placeholder="Search users.." maxlength="25">
+                <div class="output-overlay"></div>
+                <img src="images/GG.png" alt="..." class="searchIcon" />
+            </div>
+
+            <div class="orderType">
+
+            </div>
+
+
+        </div>
+
+    </div>
+    <div class="searchFilerContainer">
+        <ul class="filterContainerList">
+            <li class="filterName filter checkClass">NAME</li>
+            <li class="filterAge filter">AGE</li>
+            <li class="filterId filter">ID</li>
+        </ul>
+    </div>
+</body>
+
+</html>

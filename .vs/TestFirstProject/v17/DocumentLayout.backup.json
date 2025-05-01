@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\1\\source\\repos\\TestFirstProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1F68C680-CC76-4A9A-AC1B-065D5784F6B5}|TestFirstProject\\TestFirstProject.csproj|c:\\users\\1\\source\\repos\\testfirstproject\\testfirstproject\\wwwroot\\adduser.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1F68C680-CC76-4A9A-AC1B-065D5784F6B5}|TestFirstProject\\TestFirstProject.csproj|solutionrelative:testfirstproject\\wwwroot\\adduser.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F68C680-CC76-4A9A-AC1B-065D5784F6B5}|TestFirstProject\\TestFirstProject.csproj|c:\\users\\1\\source\\repos\\testfirstproject\\testfirstproject\\wwwroot\\v.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1F68C680-CC76-4A9A-AC1B-065D5784F6B5}|TestFirstProject\\TestFirstProject.csproj|solutionrelative:testfirstproject\\wwwroot\\v.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F68C680-CC76-4A9A-AC1B-065D5784F6B5}|TestFirstProject\\TestFirstProject.csproj|c:\\users\\1\\source\\repos\\testfirstproject\\testfirstproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F68C680-CC76-4A9A-AC1B-065D5784F6B5}|TestFirstProject\\TestFirstProject.csproj|solutionrelative:testfirstproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F68C680-CC76-4A9A-AC1B-065D5784F6B5}|TestFirstProject\\TestFirstProject.csproj|c:\\users\\1\\source\\repos\\testfirstproject\\testfirstproject\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F68C680-CC76-4A9A-AC1B-065D5784F6B5}|TestFirstProject\\TestFirstProject.csproj|solutionrelative:testfirstproject\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F68C680-CC76-4A9A-AC1B-065D5784F6B5}|TestFirstProject\\TestFirstProject.csproj|c:\\users\\1\\source\\repos\\testfirstproject\\testfirstproject\\configurations\\personconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F68C680-CC76-4A9A-AC1B-065D5784F6B5}|TestFirstProject\\TestFirstProject.csproj|solutionrelative:testfirstproject\\configurations\\personconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F68C680-CC76-4A9A-AC1B-065D5784F6B5}|TestFirstProject\\TestFirstProject.csproj|c:\\users\\1\\source\\repos\\testfirstproject\\testfirstproject\\contexts\\personscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F68C680-CC76-4A9A-AC1B-065D5784F6B5}|TestFirstProject\\TestFirstProject.csproj|solutionrelative:testfirstproject\\contexts\\personscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F68C680-CC76-4A9A-AC1B-065D5784F6B5}|TestFirstProject\\TestFirstProject.csproj|c:\\users\\1\\source\\repos\\testfirstproject\\testfirstproject\\models\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F68C680-CC76-4A9A-AC1B-065D5784F6B5}|TestFirstProject\\TestFirstProject.csproj|solutionrelative:testfirstproject\\models\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F68C680-CC76-4A9A-AC1B-065D5784F6B5}|TestFirstProject\\TestFirstProject.csproj|c:\\users\\1\\source\\repos\\testfirstproject\\testfirstproject\\operationsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F68C680-CC76-4A9A-AC1B-065D5784F6B5}|TestFirstProject\\TestFirstProject.csproj|solutionrelative:testfirstproject\\operationsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "v.js",
+              "DocumentMoniker": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\v.js",
+              "RelativeDocumentMoniker": "TestFirstProject\\wwwroot\\v.js",
+              "ToolTip": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\v.js",
+              "RelativeToolTip": "TestFirstProject\\wwwroot\\v.js",
+              "ViewState": "AgIAADYAAAAA7v////8LwE8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-01T17:29:52.544Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "TestFirstProject\\wwwroot\\index.html",
+              "ToolTip": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\index.html",
+              "RelativeToolTip": "TestFirstProject\\wwwroot\\index.html",
+              "ViewState": "AgIAABUAAABAZmZmZuYswAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-05-01T17:21:32.965Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "addUser.js",
+              "DocumentMoniker": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\addUser.js",
+              "RelativeDocumentMoniker": "TestFirstProject\\wwwroot\\addUser.js",
+              "ToolTip": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\addUser.js",
+              "RelativeToolTip": "TestFirstProject\\wwwroot\\addUser.js",
+              "ViewState": "AgIAADEAAAAAMzMzMzMBwA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-01T17:21:31.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PersonConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\Configurations\\PersonConfiguration.cs",
+              "RelativeDocumentMoniker": "TestFirstProject\\Configurations\\PersonConfiguration.cs",
+              "ToolTip": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\Configurations\\PersonConfiguration.cs",
+              "RelativeToolTip": "TestFirstProject\\Configurations\\PersonConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T17:45:15.001Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PersonsContext.cs",
+              "DocumentMoniker": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\Contexts\\PersonsContext.cs",
+              "RelativeDocumentMoniker": "TestFirstProject\\Contexts\\PersonsContext.cs",
+              "ToolTip": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\Contexts\\PersonsContext.cs",
+              "RelativeToolTip": "TestFirstProject\\Contexts\\PersonsContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T17:45:11.806Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Person.cs",
+              "DocumentMoniker": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\Models\\Person.cs",
+              "RelativeDocumentMoniker": "TestFirstProject\\Models\\Person.cs",
+              "ToolTip": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\Models\\Person.cs",
+              "RelativeToolTip": "TestFirstProject\\Models\\Person.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T17:45:09.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "OperationsRepository.cs",
+              "DocumentMoniker": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\OperationsRepository.cs",
+              "RelativeDocumentMoniker": "TestFirstProject\\OperationsRepository.cs",
+              "ToolTip": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\OperationsRepository.cs",
+              "RelativeToolTip": "TestFirstProject\\OperationsRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIEAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T17:44:56.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\Program.cs",
+              "RelativeDocumentMoniker": "TestFirstProject\\Program.cs",
+              "ToolTip": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\Program.cs",
+              "RelativeToolTip": "TestFirstProject\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T17:24:58.432Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

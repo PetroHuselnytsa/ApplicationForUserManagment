@@ -1,0 +1,1155 @@
+{
+  "Version": 1,
+  "Hash": "6h3LQTig5juHtpvTtuk06DRsKtxJ4XLToMlAYVh+OBE=",
+  "Source": "TestFirstProject",
+  "BasePath": "_content/TestFirstProject",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "TestFirstProject\\wwwroot",
+      "Source": "TestFirstProject",
+      "ContentRoot": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\",
+      "BasePath": "_content/TestFirstProject",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\addUser.js",
+      "SourceId": "TestFirstProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\",
+      "BasePath": "_content/TestFirstProject",
+      "RelativePath": "addUser#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ekd9f6engy",
+      "Integrity": "EmzWlmmsUzCgffLjWs3Wa4kyBN+oSQyRGeZAEBXrVq4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\addUser.js"
+    },
+    {
+      "Identity": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\1739095189632.png",
+      "SourceId": "TestFirstProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\",
+      "BasePath": "_content/TestFirstProject",
+      "RelativePath": "images/1739095189632#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "esmzfmb8x0",
+      "Integrity": "4mpDvqBP82i3IFsg7mfTL4mcVKDJfv4P38i/nUBC8M0=",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\1739095189632.png"
+    },
+    {
+      "Identity": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\checkMark.png",
+      "SourceId": "TestFirstProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\",
+      "BasePath": "_content/TestFirstProject",
+      "RelativePath": "images/checkMark#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "odvi9wtlt3",
+      "Integrity": "XKgxR/T+IAliL0VegR/INjue8fAzFpNbBqsQFoYAV+Y=",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\checkMark.png"
+    },
+    {
+      "Identity": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\deleteIcon.png",
+      "SourceId": "TestFirstProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\",
+      "BasePath": "_content/TestFirstProject",
+      "RelativePath": "images/deleteIcon#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "9mdx3j7rz5",
+      "Integrity": "z/2f/9TlYYeb6aQxBKuCglIKIk3cKWFoEkPvSl9njJI=",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\deleteIcon.png"
+    },
+    {
+      "Identity": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\editUser.png",
+      "SourceId": "TestFirstProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\",
+      "BasePath": "_content/TestFirstProject",
+      "RelativePath": "images/editUser#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "lxuc353i36",
+      "Integrity": "ZxFs57IHQIDsGx4+x0H1gJu6o+6zR0Y2ljH2gJ8Fz3M=",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\editUser.png"
+    },
+    {
+      "Identity": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\GG.png",
+      "SourceId": "TestFirstProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\",
+      "BasePath": "_content/TestFirstProject",
+      "RelativePath": "images/GG#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "iyo4q0ktiy",
+      "Integrity": "ps4dDh2Wxq7T0UNQY1Q4n+KC72OAagdDTIJk7N2ZyfE=",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\GG.png"
+    },
+    {
+      "Identity": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\notFound.png",
+      "SourceId": "TestFirstProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\",
+      "BasePath": "_content/TestFirstProject",
+      "RelativePath": "images/notFound#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dd0fc12d8f",
+      "Integrity": "oT/0p8Q2T2dTueRUbtXaNMbYwogAgYx0xcuiKkpuOrY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\notFound.png"
+    },
+    {
+      "Identity": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\userIcon.png",
+      "SourceId": "TestFirstProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\",
+      "BasePath": "_content/TestFirstProject",
+      "RelativePath": "images/userIcon#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "9dv371pyzd",
+      "Integrity": "cyM7cBjnTSeh4un4dXlaG+xqsitm0HSDTCSxdgCHNRo=",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\userIcon.png"
+    },
+    {
+      "Identity": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\index.html",
+      "SourceId": "TestFirstProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\",
+      "BasePath": "_content/TestFirstProject",
+      "RelativePath": "index#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "3nqx8aus0f",
+      "Integrity": "4aoxvajHiAi0oNQhsG1l3bvgDJBDh1vJRgPBzwgHLng=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\style.css",
+      "SourceId": "TestFirstProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\",
+      "BasePath": "_content/TestFirstProject",
+      "RelativePath": "style#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "83h0m2mwwf",
+      "Integrity": "hNTIem9KCPRp56bjAOrRMR+479iBTBYsh0+D+CCg8kI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\style.css"
+    },
+    {
+      "Identity": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\v.js",
+      "SourceId": "TestFirstProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\",
+      "BasePath": "_content/TestFirstProject",
+      "RelativePath": "v#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "xh5ifjiy6u",
+      "Integrity": "q9i298hSVtmjI/vA7cdpTqfzfJBMstrrtt3JIJVEzkI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\v.js"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "addUser.ekd9f6engy.js",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\addUser.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "19349"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EmzWlmmsUzCgffLjWs3Wa4kyBN+oSQyRGeZAEBXrVq4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 12 Feb 2025 12:50:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ekd9f6engy"
+        },
+        {
+          "Name": "label",
+          "Value": "addUser.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-EmzWlmmsUzCgffLjWs3Wa4kyBN+oSQyRGeZAEBXrVq4="
+        }
+      ]
+    },
+    {
+      "Route": "addUser.js",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\addUser.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "19349"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EmzWlmmsUzCgffLjWs3Wa4kyBN+oSQyRGeZAEBXrVq4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 12 Feb 2025 12:50:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-EmzWlmmsUzCgffLjWs3Wa4kyBN+oSQyRGeZAEBXrVq4="
+        }
+      ]
+    },
+    {
+      "Route": "images/1739095189632.esmzfmb8x0.png",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\1739095189632.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "33407"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4mpDvqBP82i3IFsg7mfTL4mcVKDJfv4P38i/nUBC8M0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 09 Feb 2025 10:01:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "esmzfmb8x0"
+        },
+        {
+          "Name": "label",
+          "Value": "images/1739095189632.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4mpDvqBP82i3IFsg7mfTL4mcVKDJfv4P38i/nUBC8M0="
+        }
+      ]
+    },
+    {
+      "Route": "images/1739095189632.png",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\1739095189632.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "33407"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4mpDvqBP82i3IFsg7mfTL4mcVKDJfv4P38i/nUBC8M0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 09 Feb 2025 10:01:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4mpDvqBP82i3IFsg7mfTL4mcVKDJfv4P38i/nUBC8M0="
+        }
+      ]
+    },
+    {
+      "Route": "images/checkMark.odvi9wtlt3.png",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\checkMark.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "856"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XKgxR/T+IAliL0VegR/INjue8fAzFpNbBqsQFoYAV+Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 08 Feb 2025 16:54:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "odvi9wtlt3"
+        },
+        {
+          "Name": "label",
+          "Value": "images/checkMark.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-XKgxR/T+IAliL0VegR/INjue8fAzFpNbBqsQFoYAV+Y="
+        }
+      ]
+    },
+    {
+      "Route": "images/checkMark.png",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\checkMark.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "856"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XKgxR/T+IAliL0VegR/INjue8fAzFpNbBqsQFoYAV+Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 08 Feb 2025 16:54:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-XKgxR/T+IAliL0VegR/INjue8fAzFpNbBqsQFoYAV+Y="
+        }
+      ]
+    },
+    {
+      "Route": "images/deleteIcon.9mdx3j7rz5.png",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\deleteIcon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12944"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z/2f/9TlYYeb6aQxBKuCglIKIk3cKWFoEkPvSl9njJI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 06 Feb 2025 08:59:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9mdx3j7rz5"
+        },
+        {
+          "Name": "label",
+          "Value": "images/deleteIcon.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-z/2f/9TlYYeb6aQxBKuCglIKIk3cKWFoEkPvSl9njJI="
+        }
+      ]
+    },
+    {
+      "Route": "images/deleteIcon.png",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\deleteIcon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12944"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z/2f/9TlYYeb6aQxBKuCglIKIk3cKWFoEkPvSl9njJI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 06 Feb 2025 08:59:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-z/2f/9TlYYeb6aQxBKuCglIKIk3cKWFoEkPvSl9njJI="
+        }
+      ]
+    },
+    {
+      "Route": "images/editUser.lxuc353i36.png",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\editUser.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "42656"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZxFs57IHQIDsGx4+x0H1gJu6o+6zR0Y2ljH2gJ8Fz3M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 06 Feb 2025 08:59:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "lxuc353i36"
+        },
+        {
+          "Name": "label",
+          "Value": "images/editUser.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZxFs57IHQIDsGx4+x0H1gJu6o+6zR0Y2ljH2gJ8Fz3M="
+        }
+      ]
+    },
+    {
+      "Route": "images/editUser.png",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\editUser.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "42656"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZxFs57IHQIDsGx4+x0H1gJu6o+6zR0Y2ljH2gJ8Fz3M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 06 Feb 2025 08:59:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZxFs57IHQIDsGx4+x0H1gJu6o+6zR0Y2ljH2gJ8Fz3M="
+        }
+      ]
+    },
+    {
+      "Route": "images/GG.iyo4q0ktiy.png",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\GG.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13402"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ps4dDh2Wxq7T0UNQY1Q4n+KC72OAagdDTIJk7N2ZyfE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 06 Feb 2025 08:59:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "iyo4q0ktiy"
+        },
+        {
+          "Name": "label",
+          "Value": "images/GG.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ps4dDh2Wxq7T0UNQY1Q4n+KC72OAagdDTIJk7N2ZyfE="
+        }
+      ]
+    },
+    {
+      "Route": "images/GG.png",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\GG.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13402"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ps4dDh2Wxq7T0UNQY1Q4n+KC72OAagdDTIJk7N2ZyfE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 06 Feb 2025 08:59:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ps4dDh2Wxq7T0UNQY1Q4n+KC72OAagdDTIJk7N2ZyfE="
+        }
+      ]
+    },
+    {
+      "Route": "images/notFound.dd0fc12d8f.png",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\notFound.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7033"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"oT/0p8Q2T2dTueRUbtXaNMbYwogAgYx0xcuiKkpuOrY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 09 Feb 2025 09:33:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dd0fc12d8f"
+        },
+        {
+          "Name": "label",
+          "Value": "images/notFound.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-oT/0p8Q2T2dTueRUbtXaNMbYwogAgYx0xcuiKkpuOrY="
+        }
+      ]
+    },
+    {
+      "Route": "images/notFound.png",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\notFound.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7033"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"oT/0p8Q2T2dTueRUbtXaNMbYwogAgYx0xcuiKkpuOrY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 09 Feb 2025 09:33:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-oT/0p8Q2T2dTueRUbtXaNMbYwogAgYx0xcuiKkpuOrY="
+        }
+      ]
+    },
+    {
+      "Route": "images/userIcon.9dv371pyzd.png",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\userIcon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "58927"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cyM7cBjnTSeh4un4dXlaG+xqsitm0HSDTCSxdgCHNRo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 06 Feb 2025 08:59:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9dv371pyzd"
+        },
+        {
+          "Name": "label",
+          "Value": "images/userIcon.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-cyM7cBjnTSeh4un4dXlaG+xqsitm0HSDTCSxdgCHNRo="
+        }
+      ]
+    },
+    {
+      "Route": "images/userIcon.png",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\images\\userIcon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "58927"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cyM7cBjnTSeh4un4dXlaG+xqsitm0HSDTCSxdgCHNRo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 06 Feb 2025 08:59:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-cyM7cBjnTSeh4un4dXlaG+xqsitm0HSDTCSxdgCHNRo="
+        }
+      ]
+    },
+    {
+      "Route": "index.3nqx8aus0f.html",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1790"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4aoxvajHiAi0oNQhsG1l3bvgDJBDh1vJRgPBzwgHLng=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Feb 2025 16:51:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3nqx8aus0f"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4aoxvajHiAi0oNQhsG1l3bvgDJBDh1vJRgPBzwgHLng="
+        }
+      ]
+    },
+    {
+      "Route": "index.html",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1790"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4aoxvajHiAi0oNQhsG1l3bvgDJBDh1vJRgPBzwgHLng=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Feb 2025 16:51:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4aoxvajHiAi0oNQhsG1l3bvgDJBDh1vJRgPBzwgHLng="
+        }
+      ]
+    },
+    {
+      "Route": "style.83h0m2mwwf.css",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\style.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9978"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hNTIem9KCPRp56bjAOrRMR+479iBTBYsh0+D+CCg8kI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Feb 2025 22:01:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "83h0m2mwwf"
+        },
+        {
+          "Name": "label",
+          "Value": "style.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hNTIem9KCPRp56bjAOrRMR+479iBTBYsh0+D+CCg8kI="
+        }
+      ]
+    },
+    {
+      "Route": "style.css",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\style.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9978"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hNTIem9KCPRp56bjAOrRMR+479iBTBYsh0+D+CCg8kI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Feb 2025 22:01:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hNTIem9KCPRp56bjAOrRMR+479iBTBYsh0+D+CCg8kI="
+        }
+      ]
+    },
+    {
+      "Route": "v.js",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\v.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"q9i298hSVtmjI/vA7cdpTqfzfJBMstrrtt3JIJVEzkI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 01 May 2025 17:31:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-q9i298hSVtmjI/vA7cdpTqfzfJBMstrrtt3JIJVEzkI="
+        }
+      ]
+    },
+    {
+      "Route": "v.xh5ifjiy6u.js",
+      "AssetFile": "C:\\Users\\1\\source\\repos\\TestFirstProject\\TestFirstProject\\wwwroot\\v.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"q9i298hSVtmjI/vA7cdpTqfzfJBMstrrtt3JIJVEzkI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 01 May 2025 17:31:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xh5ifjiy6u"
+        },
+        {
+          "Name": "label",
+          "Value": "v.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-q9i298hSVtmjI/vA7cdpTqfzfJBMstrrtt3JIJVEzkI="
+        }
+      ]
+    }
+  ]
+}

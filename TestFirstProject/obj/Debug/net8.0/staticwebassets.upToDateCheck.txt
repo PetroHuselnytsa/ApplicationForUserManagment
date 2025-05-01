@@ -1,0 +1,11 @@
+wwwroot\addUser.js
+wwwroot\images\1739095189632.png
+wwwroot\images\checkMark.png
+wwwroot\images\deleteIcon.png
+wwwroot\images\editUser.png
+wwwroot\images\GG.png
+wwwroot\images\notFound.png
+wwwroot\images\userIcon.png
+wwwroot\index.html
+wwwroot\style.css
+wwwroot\v.js
