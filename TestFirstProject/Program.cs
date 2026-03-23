@@ -3,6 +3,7 @@ using Serilog;
 using System.Text.RegularExpressions;
 using TestFirstProject;
 using TestFirstProject.Contexts;
+using TestFirstProject.Endpoints;
 using TestFirstProject.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,7 @@ builder.ConfigureSentry();
 builder.Services.AddLoggingInfrastructure(builder.Configuration);
 builder.Services.AddTelemetryServices(builder.Configuration);
 builder.Services.AddAuditLogging(builder.Configuration);
+builder.Services.AddApiServices(builder.Configuration);
 builder.Services.AddDbContext<PersonsContext>();
 builder.Services.AddScoped<OperationsRepository>();
 
@@ -20,8 +22,12 @@ var app = builder.Build();
 
 app.UseLoggingMiddleware();
 app.UseErrorTracking();
+app.UseAuditAccessControl();
 
 app.UseStaticFiles();
+
+app.MapAuditEndpoints();
+app.MapLogEndpoints();
 
 app.MapGet("/api/users", async (OperationsRepository operations, HttpResponse response, HttpRequest request) =>
 {
@@ -54,3 +60,5 @@ app.MapFallback(async context =>
 });
 
 app.Run();
+
+public partial class Program { }
