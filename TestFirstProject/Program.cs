@@ -8,14 +8,18 @@ using TestFirstProject.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.ConfigureSerilog();
+builder.ConfigureSentry();
 
 builder.Services.AddLoggingInfrastructure(builder.Configuration);
+builder.Services.AddTelemetryServices(builder.Configuration);
+builder.Services.AddAuditLogging(builder.Configuration);
 builder.Services.AddDbContext<PersonsContext>();
 builder.Services.AddScoped<OperationsRepository>();
 
 var app = builder.Build();
 
 app.UseLoggingMiddleware();
+app.UseErrorTracking();
 
 app.UseStaticFiles();
 
