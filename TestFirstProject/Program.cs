@@ -1,14 +1,21 @@
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using System.Text.RegularExpressions;
 using TestFirstProject;
 using TestFirstProject.Contexts;
+using TestFirstProject.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.ConfigureSerilog();
+
+builder.Services.AddLoggingInfrastructure(builder.Configuration);
 builder.Services.AddDbContext<PersonsContext>();
 builder.Services.AddScoped<OperationsRepository>();
 
 var app = builder.Build();
+
+app.UseLoggingMiddleware();
 
 app.UseStaticFiles();
 
