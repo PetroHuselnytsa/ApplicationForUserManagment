@@ -1,7 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-using System.Reflection.Metadata.Ecma335;
 using System.Text.Json;
 using TestFirstProject.Contexts;
 using TestFirstProject.Models;
@@ -10,7 +8,13 @@ namespace TestFirstProject
 {
     public class OperationsRepository
     {
-        private PersonsContext _personsContext;
+        private static readonly JsonSerializerOptions PersonJsonOptions = new()
+        {
+            Converters = { new PersonConverter() }
+        };
+
+        private readonly PersonsContext _personsContext;
+
         public OperationsRepository(PersonsContext personsContext)
         {
             _personsContext = personsContext;
@@ -19,22 +23,20 @@ namespace TestFirstProject
         public async Task GetPersons(HttpRequest request, HttpResponse response)
         {
             List<Person> persons = await _personsContext.Persons.AsNoTracking()
-                                                                .ToListAsync(); 
+                                                                .ToListAsync();
             request.Headers.TryGetValue("Data-filter", out var dataFilter);
             request.Headers.TryGetValue("Search-value", out var searchValue);
 
-            
-
             string filterOption = dataFilter.ToString();
             string searchQuery = searchValue.ToString();
-            
+
             if (string.IsNullOrEmpty(searchQuery))
             {
                 await response.WriteAsJsonAsync(SetOrderFilters(request, persons));
                 return;
             }
-            
-            Dictionary<string, Func<IEnumerable<Person>>> filterActions = new Dictionary<string, Func<IEnumerable<Person>>>
+
+            Dictionary<string, Func<IEnumerable<Person>>> filterActions = new()
             {
                 { "name", () => persons.Where(p => p.Name.StartsWith(searchQuery, StringComparison.OrdinalIgnoreCase))},
                 { "age", () => persons.Where(p => p.Age.ToString().StartsWith(searchQuery))},
@@ -43,10 +45,9 @@ namespace TestFirstProject
 
             if (!filterActions.TryGetValue(filterOption, out var action))
             {
-                await response.WriteAsJsonAsync(new List<Person>()); 
+                await response.WriteAsJsonAsync(new List<Person>());
                 return;
             }
-
 
             List<Person> filteredPersons = action().ToList();
             await response.WriteAsJsonAsync(SetOrderFilters(request, filteredPersons));
@@ -64,7 +65,7 @@ namespace TestFirstProject
                 var property = Expression.Property(parameter, searchFilter);
                 var lambda = Expression.Lambda<Func<Person, object>>(Expression.Convert(property, typeof(object)), parameter);
                 var queryable = persons.AsQueryable();
-                switch (searchType) 
+                switch (searchType)
                 {
                     case "ascending":
                         return [.. queryable.OrderBy(lambda)];
@@ -89,65 +90,57 @@ namespace TestFirstProject
                 response.StatusCode = 404;
                 await response.WriteAsJsonAsync(new { message = "Person not found!" });
             }
-        } 
+        }
+
         public async Task CreatePerson(HttpResponse response, HttpRequest request)
         {
             try
             {
-                var jsonOptions = new JsonSerializerOptions();
-                jsonOptions.Converters.Add(new PersonConverter());
-                Person? person = await request.ReadFromJsonAsync<Person>(jsonOptions);
-                if (person != null)
-                {
-                    person.Id = GenerateId();
-                    _personsContext.Persons.Add(person);
-                    await _personsContext.SaveChangesAsync();
-                    await response.WriteAsJsonAsync(person);
-                }
-                else
-                    throw new Exception("Invalid data!");
+                Person? person = await request.ReadFromJsonAsync<Person>(PersonJsonOptions);
+                if (person == null)
+                    throw new ArgumentException("Invalid person data.");
+
+                person.Id = GenerateId();
+                _personsContext.Persons.Add(person);
+                await _personsContext.SaveChangesAsync();
+                await response.WriteAsJsonAsync(person);
             }
             catch (Exception exception)
             {
-                response.StatusCode = 404;
+                response.StatusCode = 400;
                 await response.WriteAsJsonAsync(new { message = exception.Message });
             }
-        } 
+        }
+
         public async Task UpdatePerson(HttpResponse response, HttpRequest request)
         {
             try
             {
-                var jsonOptions = new JsonSerializerOptions();
-                jsonOptions.Converters.Add(new PersonConverter());
-                Person? personNewData = await request.ReadFromJsonAsync<Person>(jsonOptions);
-                if (personNewData != null)
+                Person? personNewData = await request.ReadFromJsonAsync<Person>(PersonJsonOptions);
+                if (personNewData == null)
+                    throw new ArgumentException("Invalid person data.");
+
+                Person? person = await _personsContext.Persons.FirstOrDefaultAsync(u => u.Id == personNewData.Id);
+                if (person == null)
                 {
-                    Person? person = await _personsContext.Persons.FirstOrDefaultAsync(u => u.Id == personNewData.Id);
-                    if (person != null)
-                    {
-                        person.Name = personNewData.Name;
-                        person.Age = personNewData.Age;
-                        await _personsContext.SaveChangesAsync();
-                        await response.WriteAsJsonAsync(person);
-                    }
-                    else
-                    {
-                        response.StatusCode = 404;
-                        await response.WriteAsJsonAsync(new { message = "Person not found!" });
-                    }
+                    response.StatusCode = 404;
+                    await response.WriteAsJsonAsync(new { message = "Person not found!" });
+                    return;
                 }
-                else
-                {
-                    throw new Exception("Invalid data!");
-                }
+
+                person.Name = personNewData.Name;
+                person.Age = personNewData.Age;
+                await _personsContext.SaveChangesAsync();
+                await response.WriteAsJsonAsync(person);
             }
             catch (Exception exception)
             {
-                response.StatusCode = 404;
+                response.StatusCode = 400;
                 await response.WriteAsJsonAsync(new { message = exception.Message });
             }
-        } 
-        static public string GenerateId()
+        }
+
+        public static string GenerateId()
         {
             Guid guid = Guid.NewGuid();
             string guidString = guid.ToString("N");
