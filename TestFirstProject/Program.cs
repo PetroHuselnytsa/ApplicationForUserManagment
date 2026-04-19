@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using TestFirstProject;
+using TestFirstProject.BackgroundJobs;
 using TestFirstProject.Contexts;
 using TestFirstProject.Endpoints;
 using TestFirstProject.Hubs;
@@ -82,6 +83,26 @@ builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<ISignalRNotifier, SignalRNotifier>();
 
+// --- E-Commerce Services ---
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddScoped<IInventoryService, InventoryService>();
+builder.Services.AddScoped<IShippingService, ShippingService>();
+builder.Services.AddScoped<IPromotionService, PromotionService>();
+
+// --- Payment Gateways (mock implementations) ---
+builder.Services.AddScoped<IPaymentGateway, CreditCardGateway>();
+builder.Services.AddScoped<IPaymentGateway, PayPalGateway>();
+builder.Services.AddScoped<IPaymentGateway, BankTransferGateway>();
+builder.Services.AddScoped<IPaymentGateway, WalletGateway>();
+
+// --- Background Jobs ---
+builder.Services.AddHostedService<CartExpiryJob>();
+builder.Services.AddHostedService<LowStockAlertJob>();
+builder.Services.AddHostedService<FlashSaleJob>();
+
 // --- Rate Limiting ---
 builder.Services.AddRateLimiter(options =>
 {
@@ -149,6 +170,13 @@ app.MapDelete("/api/users/{id}", async (string id, OperationsRepository operatio
 app.MapAuthEndpoints();
 app.MapConversationEndpoints();
 app.MapNotificationEndpoints();
+
+// --- E-Commerce endpoints ---
+app.MapProductEndpoints();
+app.MapCartEndpoints();
+app.MapOrderEndpoints();
+app.MapPaymentEndpoints();
+app.MapAdminEndpoints();
 
 // --- SignalR Hub ---
 app.MapHub<ChatHub>("/hubs/chat");

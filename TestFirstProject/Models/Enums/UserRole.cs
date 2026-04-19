@@ -7,6 +7,7 @@ namespace TestFirstProject.Models.Enums
     {
         User = 0,
         PremiumUser = 1,
-        Admin = 2
+        Admin = 2,
+        Manager = 3
     }
 }
