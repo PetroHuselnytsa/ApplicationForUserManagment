@@ -8,8 +8,11 @@ using Microsoft.IdentityModel.Tokens;
 using TestFirstProject;
 using TestFirstProject.Contexts;
 using TestFirstProject.Endpoints;
+using TestFirstProject.Endpoints.Game;
 using TestFirstProject.Hubs;
 using TestFirstProject.Middleware;
+using TestFirstProject.Services.Game.Implementations;
+using TestFirstProject.Services.Game.Interfaces;
 using TestFirstProject.Services.Implementations;
 using TestFirstProject.Services.Interfaces;
 using TestFirstProject.Settings;
@@ -82,6 +85,21 @@ builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<ISignalRNotifier, SignalRNotifier>();
 
+// --- RPG Game Engine Services ---
+builder.Services.AddScoped<DamageCalculator>();
+builder.Services.AddScoped<StatusEffectProcessor>();
+builder.Services.AddScoped<ICharacterProgressionService, CharacterProgressionService>();
+builder.Services.AddScoped<ICombatEngine, CombatEngine>();
+builder.Services.AddScoped<ILootService, LootService>();
+builder.Services.AddScoped<IInventoryService, InventoryService>();
+builder.Services.AddScoped<IDungeonRunner, DungeonRunner>();
+builder.Services.AddScoped<IQuestProgressTracker, QuestProgressTracker>();
+// Enemy AI strategies (multiple implementations registered for IEnumerable<IEnemyAIStrategy>)
+builder.Services.AddScoped<IEnemyAIStrategy, DefaultAIStrategy>();
+builder.Services.AddScoped<IEnemyAIStrategy, AggressiveAIStrategy>();
+builder.Services.AddScoped<IEnemyAIStrategy, DefensiveAIStrategy>();
+builder.Services.AddScoped<IEnemyAIStrategy, BossAIStrategy>();
+
 // --- Rate Limiting ---
 builder.Services.AddRateLimiter(options =>
 {
@@ -149,6 +167,13 @@ app.MapDelete("/api/users/{id}", async (string id, OperationsRepository operatio
 app.MapAuthEndpoints();
 app.MapConversationEndpoints();
 app.MapNotificationEndpoints();
+
+// --- RPG Game Engine endpoints ---
+app.MapCharacterEndpoints();
+app.MapBattleEndpoints();
+app.MapInventoryEndpoints();
+app.MapDungeonEndpoints();
+app.MapQuestEndpoints();
 
 // --- SignalR Hub ---
 app.MapHub<ChatHub>("/hubs/chat");
