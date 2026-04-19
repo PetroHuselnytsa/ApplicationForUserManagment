@@ -8,10 +8,13 @@ using Microsoft.IdentityModel.Tokens;
 using TestFirstProject;
 using TestFirstProject.Contexts;
 using TestFirstProject.Endpoints;
+using TestFirstProject.Endpoints.Game;
 using TestFirstProject.Hubs;
 using TestFirstProject.Middleware;
 using TestFirstProject.Services.Implementations;
+using TestFirstProject.Services.Implementations.Game;
 using TestFirstProject.Services.Interfaces;
+using TestFirstProject.Services.Interfaces.Game;
 using TestFirstProject.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +22,8 @@ var builder = WebApplication.CreateBuilder(args);
 // --- Database ---
 var connectionString = builder.Configuration.GetConnectionString("PostgresConnection");
 builder.Services.AddDbContext<PersonsContext>(options =>
+    options.UseNpgsql(connectionString));
+builder.Services.AddDbContext<GameDbContext>(options =>
     options.UseNpgsql(connectionString));
 
 // Existing services
@@ -81,6 +86,15 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<ISignalRNotifier, SignalRNotifier>();
+
+// --- RPG Game Engine Services ---
+builder.Services.AddScoped<ICharacterProgressionService, CharacterProgressionService>();
+builder.Services.AddScoped<IDamageCalculator, DamageCalculator>();
+builder.Services.AddScoped<IStatusEffectProcessor, StatusEffectProcessor>();
+builder.Services.AddScoped<ICombatEngine, CombatEngine>();
+builder.Services.AddScoped<ILootService, LootService>();
+builder.Services.AddScoped<IDungeonRunner, DungeonRunner>();
+builder.Services.AddScoped<IQuestProgressTracker, QuestProgressTracker>();
 
 // --- Rate Limiting ---
 builder.Services.AddRateLimiter(options =>
@@ -149,6 +163,13 @@ app.MapDelete("/api/users/{id}", async (string id, OperationsRepository operatio
 app.MapAuthEndpoints();
 app.MapConversationEndpoints();
 app.MapNotificationEndpoints();
+
+// --- RPG Game Engine endpoints ---
+app.MapCharacterEndpoints();
+app.MapBattleEndpoints();
+app.MapInventoryEndpoints();
+app.MapDungeonEndpoints();
+app.MapQuestEndpoints();
 
 // --- SignalR Hub ---
 app.MapHub<ChatHub>("/hubs/chat");
