@@ -82,6 +82,20 @@ builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<ISignalRNotifier, SignalRNotifier>();
 
+// --- E-Commerce Services ---
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddScoped<IInventoryService, InventoryService>();
+builder.Services.AddScoped<IShippingService, ShippingService>();
+builder.Services.AddScoped<IPromotionService, PromotionService>();
+
+// --- Background Services ---
+builder.Services.AddHostedService<TestFirstProject.BackgroundServices.CartCleanupService>();
+builder.Services.AddHostedService<TestFirstProject.BackgroundServices.LowStockAlertService>();
+builder.Services.AddHostedService<TestFirstProject.BackgroundServices.FlashSaleService>();
+
 // --- Rate Limiting ---
 builder.Services.AddRateLimiter(options =>
 {
@@ -149,6 +163,13 @@ app.MapDelete("/api/users/{id}", async (string id, OperationsRepository operatio
 app.MapAuthEndpoints();
 app.MapConversationEndpoints();
 app.MapNotificationEndpoints();
+
+// --- E-Commerce endpoints ---
+app.MapProductEndpoints();
+app.MapCartEndpoints();
+app.MapOrderEndpoints();
+app.MapAdminEndpoints();
+app.MapPaymentEndpoints();
 
 // --- SignalR Hub ---
 app.MapHub<ChatHub>("/hubs/chat");

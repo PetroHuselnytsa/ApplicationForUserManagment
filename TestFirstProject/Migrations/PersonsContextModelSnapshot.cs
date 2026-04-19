@@ -290,6 +290,351 @@ namespace TestFirstProject.Migrations
                 b.ToTable("notification_preferences");
             });
 
+            // === E-Commerce Entities ===
+
+            modelBuilder.Entity("TestFirstProject.Models.Category", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<string>("Name").IsRequired().HasMaxLength(100).HasColumnName("name").HasColumnType("character varying(100)");
+                b.Property<string>("Description").HasMaxLength(500).HasColumnName("description").HasColumnType("character varying(500)");
+                b.Property<Guid?>("ParentCategoryId").HasColumnName("parent_category_id").HasColumnType("uuid");
+                b.HasKey("Id");
+                b.HasIndex("Name");
+                b.HasIndex("ParentCategoryId");
+                b.ToTable("categories");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.Product", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<string>("Name").IsRequired().HasMaxLength(200).HasColumnName("name").HasColumnType("character varying(200)");
+                b.Property<string>("Description").IsRequired().HasMaxLength(2000).HasColumnName("description").HasColumnType("character varying(2000)");
+                b.Property<string>("SKU").IsRequired().HasMaxLength(50).HasColumnName("sku").HasColumnType("character varying(50)");
+                b.Property<decimal>("BasePrice").HasPrecision(18, 2).HasColumnName("base_price").HasColumnType("numeric(18,2)");
+                b.Property<decimal>("Weight").HasPrecision(10, 3).HasColumnName("weight").HasColumnType("numeric(10,3)");
+                b.Property<Guid>("CategoryId").HasColumnName("category_id").HasColumnType("uuid");
+                b.Property<string>("ImageUrls").HasMaxLength(2000).HasColumnName("image_urls").HasColumnType("character varying(2000)");
+                b.Property<bool>("IsActive").HasDefaultValue(true).HasColumnName("is_active").HasColumnType("boolean");
+                b.Property<DateTime>("CreatedAt").HasColumnName("created_at").HasColumnType("timestamp with time zone");
+                b.Property<DateTime>("UpdatedAt").HasColumnName("updated_at").HasColumnType("timestamp with time zone");
+                b.HasKey("Id");
+                b.HasIndex("SKU").IsUnique();
+                b.HasIndex("CategoryId");
+                b.HasIndex("BasePrice");
+                b.HasIndex("IsActive");
+                b.HasIndex("IsActive", "CategoryId", "BasePrice");
+                b.ToTable("products");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.ProductVariant", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<Guid>("ProductId").HasColumnName("product_id").HasColumnType("uuid");
+                b.Property<string>("SKU").IsRequired().HasMaxLength(50).HasColumnName("sku").HasColumnType("character varying(50)");
+                b.Property<string>("Size").HasMaxLength(30).HasColumnName("size").HasColumnType("character varying(30)");
+                b.Property<string>("Color").HasMaxLength(30).HasColumnName("color").HasColumnType("character varying(30)");
+                b.Property<string>("Material").HasMaxLength(50).HasColumnName("material").HasColumnType("character varying(50)");
+                b.Property<decimal>("PriceDelta").HasPrecision(18, 2).HasColumnName("price_delta").HasColumnType("numeric(18,2)");
+                b.Property<bool>("IsActive").HasDefaultValue(true).HasColumnName("is_active").HasColumnType("boolean");
+                b.Property<DateTime>("CreatedAt").HasColumnName("created_at").HasColumnType("timestamp with time zone");
+                b.HasKey("Id");
+                b.HasIndex("SKU").IsUnique();
+                b.HasIndex("ProductId");
+                b.ToTable("product_variants");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.Warehouse", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<string>("Name").IsRequired().HasMaxLength(100).HasColumnName("name").HasColumnType("character varying(100)");
+                b.Property<string>("Location").IsRequired().HasMaxLength(200).HasColumnName("location").HasColumnType("character varying(200)");
+                b.Property<bool>("IsActive").HasDefaultValue(true).HasColumnName("is_active").HasColumnType("boolean");
+                b.HasKey("Id");
+                b.ToTable("warehouses");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.StockEntry", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<Guid>("ProductVariantId").HasColumnName("product_variant_id").HasColumnType("uuid");
+                b.Property<Guid>("WarehouseId").HasColumnName("warehouse_id").HasColumnType("uuid");
+                b.Property<int>("QuantityOnHand").HasColumnName("quantity_on_hand").HasColumnType("integer");
+                b.Property<int>("QuantityReserved").HasColumnName("quantity_reserved").HasColumnType("integer");
+                b.Property<int>("LowStockThreshold").HasDefaultValue(10).HasColumnName("low_stock_threshold").HasColumnType("integer");
+                b.Property<DateTime>("LastUpdated").HasColumnName("last_updated").HasColumnType("timestamp with time zone");
+                b.HasKey("Id");
+                b.HasIndex("WarehouseId");
+                b.HasIndex("ProductVariantId", "WarehouseId").IsUnique();
+                b.ToTable("stock_entries");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.InventoryTransaction", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<Guid>("StockEntryId").HasColumnName("stock_entry_id").HasColumnType("uuid");
+                b.Property<string>("Type").IsRequired().HasMaxLength(30).HasColumnName("type").HasColumnType("character varying(30)");
+                b.Property<int>("QuantityChange").HasColumnName("quantity_change").HasColumnType("integer");
+                b.Property<string>("Reason").IsRequired().HasMaxLength(500).HasColumnName("reason").HasColumnType("character varying(500)");
+                b.Property<Guid?>("OrderId").HasColumnName("order_id").HasColumnType("uuid");
+                b.Property<Guid?>("PerformedByUserId").HasColumnName("performed_by_user_id").HasColumnType("uuid");
+                b.Property<DateTime>("CreatedAt").HasColumnName("created_at").HasColumnType("timestamp with time zone");
+                b.HasKey("Id");
+                b.HasIndex("StockEntryId");
+                b.HasIndex("OrderId");
+                b.HasIndex("CreatedAt");
+                b.ToTable("inventory_transactions");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.RestockRequest", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<Guid>("ProductVariantId").HasColumnName("product_variant_id").HasColumnType("uuid");
+                b.Property<Guid>("WarehouseId").HasColumnName("warehouse_id").HasColumnType("uuid");
+                b.Property<int>("RequestedQuantity").HasColumnName("requested_quantity").HasColumnType("integer");
+                b.Property<int>("FulfilledQuantity").HasColumnName("fulfilled_quantity").HasColumnType("integer");
+                b.Property<string>("Status").IsRequired().HasMaxLength(20).HasColumnName("status").HasColumnType("character varying(20)");
+                b.Property<Guid>("RequestedByUserId").HasColumnName("requested_by_user_id").HasColumnType("uuid");
+                b.Property<DateTime>("CreatedAt").HasColumnName("created_at").HasColumnType("timestamp with time zone");
+                b.Property<DateTime?>("FulfilledAt").HasColumnName("fulfilled_at").HasColumnType("timestamp with time zone");
+                b.HasKey("Id");
+                b.HasIndex("Status");
+                b.ToTable("restock_requests");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.ProductReview", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<Guid>("ProductId").HasColumnName("product_id").HasColumnType("uuid");
+                b.Property<Guid>("UserId").HasColumnName("user_id").HasColumnType("uuid");
+                b.Property<int>("Rating").HasColumnName("rating").HasColumnType("integer");
+                b.Property<string>("ReviewText").HasMaxLength(2000).HasColumnName("review_text").HasColumnType("character varying(2000)");
+                b.Property<bool>("IsVerifiedPurchase").HasDefaultValue(false).HasColumnName("is_verified_purchase").HasColumnType("boolean");
+                b.Property<DateTime>("CreatedAt").HasColumnName("created_at").HasColumnType("timestamp with time zone");
+                b.HasKey("Id");
+                b.HasIndex("ProductId");
+                b.HasIndex("ProductId", "UserId").IsUnique();
+                b.ToTable("product_reviews");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.PriceHistory", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<Guid>("ProductId").HasColumnName("product_id").HasColumnType("uuid");
+                b.Property<decimal>("OldPrice").HasPrecision(18, 2).HasColumnName("old_price").HasColumnType("numeric(18,2)");
+                b.Property<decimal>("NewPrice").HasPrecision(18, 2).HasColumnName("new_price").HasColumnType("numeric(18,2)");
+                b.Property<DateTime>("ChangedAt").HasColumnName("changed_at").HasColumnType("timestamp with time zone");
+                b.Property<Guid?>("ChangedByUserId").HasColumnName("changed_by_user_id").HasColumnType("uuid");
+                b.HasKey("Id");
+                b.HasIndex("ProductId");
+                b.HasIndex("ChangedAt");
+                b.ToTable("price_history");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.Cart", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<Guid>("UserId").HasColumnName("user_id").HasColumnType("uuid");
+                b.Property<Guid?>("AppliedCouponId").HasColumnName("applied_coupon_id").HasColumnType("uuid");
+                b.Property<DateTime>("CreatedAt").HasColumnName("created_at").HasColumnType("timestamp with time zone");
+                b.Property<DateTime>("LastActivityAt").HasColumnName("last_activity_at").HasColumnType("timestamp with time zone");
+                b.HasKey("Id");
+                b.HasIndex("UserId").IsUnique();
+                b.HasIndex("LastActivityAt");
+                b.ToTable("carts");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.CartItem", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<Guid>("CartId").HasColumnName("cart_id").HasColumnType("uuid");
+                b.Property<Guid>("ProductVariantId").HasColumnName("product_variant_id").HasColumnType("uuid");
+                b.Property<int>("Quantity").HasColumnName("quantity").HasColumnType("integer");
+                b.Property<DateTime>("AddedAt").HasColumnName("added_at").HasColumnType("timestamp with time zone");
+                b.HasKey("Id");
+                b.HasIndex("CartId", "ProductVariantId").IsUnique();
+                b.ToTable("cart_items");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.Order", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<Guid>("UserId").HasColumnName("user_id").HasColumnType("uuid");
+                b.Property<string>("Status").IsRequired().HasMaxLength(20).HasColumnName("status").HasColumnType("character varying(20)");
+                b.Property<string>("ShippingAddress").IsRequired().HasMaxLength(1000).HasColumnName("shipping_address").HasColumnType("character varying(1000)");
+                b.Property<string>("BillingAddress").IsRequired().HasMaxLength(1000).HasColumnName("billing_address").HasColumnType("character varying(1000)");
+                b.Property<decimal>("SubTotal").HasPrecision(18, 2).HasColumnName("sub_total").HasColumnType("numeric(18,2)");
+                b.Property<decimal>("DiscountAmount").HasPrecision(18, 2).HasColumnName("discount_amount").HasColumnType("numeric(18,2)");
+                b.Property<decimal>("ShippingCost").HasPrecision(18, 2).HasColumnName("shipping_cost").HasColumnType("numeric(18,2)");
+                b.Property<decimal>("TotalAmount").HasPrecision(18, 2).HasColumnName("total_amount").HasColumnType("numeric(18,2)");
+                b.Property<string>("ShippingMethod").IsRequired().HasMaxLength(20).HasColumnName("shipping_method").HasColumnType("character varying(20)");
+                b.Property<Guid?>("CouponId").HasColumnName("coupon_id").HasColumnType("uuid");
+                b.Property<int>("LoyaltyPointsUsed").HasColumnName("loyalty_points_used").HasColumnType("integer");
+                b.Property<decimal>("LoyaltyDiscount").HasPrecision(18, 2).HasColumnName("loyalty_discount").HasColumnType("numeric(18,2)");
+                b.Property<string>("Notes").HasMaxLength(1000).HasColumnName("notes").HasColumnType("character varying(1000)");
+                b.Property<DateTime>("CreatedAt").HasColumnName("created_at").HasColumnType("timestamp with time zone");
+                b.Property<DateTime>("UpdatedAt").HasColumnName("updated_at").HasColumnType("timestamp with time zone");
+                b.Property<uint>("RowVersion").IsRowVersion().HasColumnName("row_version").HasColumnType("xid");
+                b.HasKey("Id");
+                b.HasIndex("UserId");
+                b.HasIndex("Status");
+                b.HasIndex("CreatedAt");
+                b.HasIndex("UserId", "CreatedAt");
+                b.ToTable("orders");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.OrderItem", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<Guid>("OrderId").HasColumnName("order_id").HasColumnType("uuid");
+                b.Property<Guid>("ProductVariantId").HasColumnName("product_variant_id").HasColumnType("uuid");
+                b.Property<string>("ProductName").IsRequired().HasMaxLength(200).HasColumnName("product_name").HasColumnType("character varying(200)");
+                b.Property<string>("VariantDescription").HasMaxLength(200).HasColumnName("variant_description").HasColumnType("character varying(200)");
+                b.Property<int>("Quantity").HasColumnName("quantity").HasColumnType("integer");
+                b.Property<decimal>("UnitPrice").HasPrecision(18, 2).HasColumnName("unit_price").HasColumnType("numeric(18,2)");
+                b.Property<decimal>("TotalPrice").HasPrecision(18, 2).HasColumnName("total_price").HasColumnType("numeric(18,2)");
+                b.HasKey("Id");
+                b.HasIndex("OrderId");
+                b.ToTable("order_items");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.OrderStatusHistory", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<Guid>("OrderId").HasColumnName("order_id").HasColumnType("uuid");
+                b.Property<string>("FromStatus").IsRequired().HasMaxLength(20).HasColumnName("from_status").HasColumnType("character varying(20)");
+                b.Property<string>("ToStatus").IsRequired().HasMaxLength(20).HasColumnName("to_status").HasColumnType("character varying(20)");
+                b.Property<Guid>("ChangedByUserId").HasColumnName("changed_by_user_id").HasColumnType("uuid");
+                b.Property<string>("Notes").HasMaxLength(500).HasColumnName("notes").HasColumnType("character varying(500)");
+                b.Property<DateTime>("ChangedAt").HasColumnName("changed_at").HasColumnType("timestamp with time zone");
+                b.HasKey("Id");
+                b.HasIndex("OrderId");
+                b.HasIndex("ChangedAt");
+                b.ToTable("order_status_history");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.Payment", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<Guid>("OrderId").HasColumnName("order_id").HasColumnType("uuid");
+                b.Property<string>("Method").IsRequired().HasMaxLength(20).HasColumnName("method").HasColumnType("character varying(20)");
+                b.Property<string>("Status").IsRequired().HasMaxLength(20).HasColumnName("status").HasColumnType("character varying(20)");
+                b.Property<decimal>("Amount").HasPrecision(18, 2).HasColumnName("amount").HasColumnType("numeric(18,2)");
+                b.Property<decimal>("RefundedAmount").HasPrecision(18, 2).HasColumnName("refunded_amount").HasColumnType("numeric(18,2)");
+                b.Property<string>("TransactionReference").HasMaxLength(200).HasColumnName("transaction_reference").HasColumnType("character varying(200)");
+                b.Property<DateTime>("CreatedAt").HasColumnName("created_at").HasColumnType("timestamp with time zone");
+                b.Property<DateTime?>("CapturedAt").HasColumnName("captured_at").HasColumnType("timestamp with time zone");
+                b.HasKey("Id");
+                b.HasIndex("OrderId");
+                b.HasIndex("Status");
+                b.ToTable("payments");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.PaymentAttempt", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<Guid>("PaymentId").HasColumnName("payment_id").HasColumnType("uuid");
+                b.Property<bool>("IsSuccessful").HasColumnName("is_successful").HasColumnType("boolean");
+                b.Property<string>("FailureReason").HasMaxLength(500).HasColumnName("failure_reason").HasColumnType("character varying(500)");
+                b.Property<string>("GatewayResponse").HasMaxLength(2000).HasColumnName("gateway_response").HasColumnType("character varying(2000)");
+                b.Property<DateTime>("AttemptedAt").HasColumnName("attempted_at").HasColumnType("timestamp with time zone");
+                b.HasKey("Id");
+                b.HasIndex("PaymentId");
+                b.ToTable("payment_attempts");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.Wallet", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<Guid>("UserId").HasColumnName("user_id").HasColumnType("uuid");
+                b.Property<decimal>("Balance").HasPrecision(18, 2).HasColumnName("balance").HasColumnType("numeric(18,2)");
+                b.Property<DateTime>("CreatedAt").HasColumnName("created_at").HasColumnType("timestamp with time zone");
+                b.Property<DateTime>("UpdatedAt").HasColumnName("updated_at").HasColumnType("timestamp with time zone");
+                b.HasKey("Id");
+                b.HasIndex("UserId").IsUnique();
+                b.ToTable("wallets");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.Shipment", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<Guid>("OrderId").HasColumnName("order_id").HasColumnType("uuid");
+                b.Property<string>("Method").IsRequired().HasMaxLength(20).HasColumnName("method").HasColumnType("character varying(20)");
+                b.Property<string>("TrackingNumber").HasMaxLength(100).HasColumnName("tracking_number").HasColumnType("character varying(100)");
+                b.Property<string>("Carrier").HasMaxLength(100).HasColumnName("carrier").HasColumnType("character varying(100)");
+                b.Property<decimal>("ShippingCost").HasPrecision(18, 2).HasColumnName("shipping_cost").HasColumnType("numeric(18,2)");
+                b.Property<decimal>("WeightKg").HasPrecision(10, 3).HasColumnName("weight_kg").HasColumnType("numeric(10,3)");
+                b.Property<string>("DistanceZone").IsRequired().HasMaxLength(50).HasColumnName("distance_zone").HasColumnType("character varying(50)");
+                b.Property<DateTime?>("ShippedAt").HasColumnName("shipped_at").HasColumnType("timestamp with time zone");
+                b.Property<DateTime?>("EstimatedDeliveryDate").HasColumnName("estimated_delivery_date").HasColumnType("timestamp with time zone");
+                b.Property<DateTime?>("DeliveredAt").HasColumnName("delivered_at").HasColumnType("timestamp with time zone");
+                b.Property<DateTime>("CreatedAt").HasColumnName("created_at").HasColumnType("timestamp with time zone");
+                b.HasKey("Id");
+                b.HasIndex("OrderId").IsUnique();
+                b.HasIndex("TrackingNumber");
+                b.ToTable("shipments");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.Coupon", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<string>("Code").IsRequired().HasMaxLength(50).HasColumnName("code").HasColumnType("character varying(50)");
+                b.Property<string>("Type").IsRequired().HasMaxLength(20).HasColumnName("type").HasColumnType("character varying(20)");
+                b.Property<decimal>("DiscountValue").HasPrecision(18, 2).HasColumnName("discount_value").HasColumnType("numeric(18,2)");
+                b.Property<decimal?>("MinOrderValue").HasPrecision(18, 2).HasColumnName("min_order_value").HasColumnType("numeric(18,2)");
+                b.Property<int?>("MaxUses").HasColumnName("max_uses").HasColumnType("integer");
+                b.Property<int>("CurrentUses").HasColumnName("current_uses").HasColumnType("integer");
+                b.Property<DateTime?>("ExpiresAt").HasColumnName("expires_at").HasColumnType("timestamp with time zone");
+                b.Property<bool>("IsActive").HasDefaultValue(true).HasColumnName("is_active").HasColumnType("boolean");
+                b.Property<DateTime>("CreatedAt").HasColumnName("created_at").HasColumnType("timestamp with time zone");
+                b.HasKey("Id");
+                b.HasIndex("Code").IsUnique();
+                b.HasIndex("IsActive");
+                b.ToTable("coupons");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.CouponUsage", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<Guid>("CouponId").HasColumnName("coupon_id").HasColumnType("uuid");
+                b.Property<Guid>("UserId").HasColumnName("user_id").HasColumnType("uuid");
+                b.Property<Guid>("OrderId").HasColumnName("order_id").HasColumnType("uuid");
+                b.Property<DateTime>("UsedAt").HasColumnName("used_at").HasColumnType("timestamp with time zone");
+                b.HasKey("Id");
+                b.HasIndex("OrderId");
+                b.HasIndex("CouponId", "UserId");
+                b.ToTable("coupon_usages");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.LoyaltyTransaction", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<Guid>("UserId").HasColumnName("user_id").HasColumnType("uuid");
+                b.Property<int>("Points").HasColumnName("points").HasColumnType("integer");
+                b.Property<string>("Description").IsRequired().HasMaxLength(200).HasColumnName("description").HasColumnType("character varying(200)");
+                b.Property<Guid?>("OrderId").HasColumnName("order_id").HasColumnType("uuid");
+                b.Property<DateTime>("CreatedAt").HasColumnName("created_at").HasColumnType("timestamp with time zone");
+                b.HasKey("Id");
+                b.HasIndex("UserId");
+                b.HasIndex("OrderId");
+                b.ToTable("loyalty_transactions");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.FlashSale", b =>
+            {
+                b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnName("id").HasColumnType("uuid");
+                b.Property<Guid>("ProductId").HasColumnName("product_id").HasColumnType("uuid");
+                b.Property<decimal>("SalePrice").HasPrecision(18, 2).HasColumnName("sale_price").HasColumnType("numeric(18,2)");
+                b.Property<DateTime>("StartTime").HasColumnName("start_time").HasColumnType("timestamp with time zone");
+                b.Property<DateTime>("EndTime").HasColumnName("end_time").HasColumnType("timestamp with time zone");
+                b.Property<bool>("IsActive").HasDefaultValue(false).HasColumnName("is_active").HasColumnType("boolean");
+                b.Property<DateTime>("CreatedAt").HasColumnName("created_at").HasColumnType("timestamp with time zone");
+                b.HasKey("Id");
+                b.HasIndex("ProductId");
+                b.ToTable("flash_sales");
+            });
+
+            // === Relationships: Existing Entities ===
+
             modelBuilder.Entity("TestFirstProject.Models.ConversationParticipant", b =>
             {
                 b.HasOne("TestFirstProject.Models.Conversation", "Conversation")
@@ -348,6 +693,138 @@ namespace TestFirstProject.Migrations
                 b.Navigation("User");
             });
 
+            // === Relationships: E-Commerce Entities ===
+
+            modelBuilder.Entity("TestFirstProject.Models.Category", b =>
+            {
+                b.HasOne("TestFirstProject.Models.Category", "ParentCategory").WithMany("SubCategories").HasForeignKey("ParentCategoryId").OnDelete(DeleteBehavior.Restrict);
+                b.Navigation("ParentCategory");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.Product", b =>
+            {
+                b.HasOne("TestFirstProject.Models.Category", "Category").WithMany("Products").HasForeignKey("CategoryId").OnDelete(DeleteBehavior.Restrict).IsRequired();
+                b.Navigation("Category");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.ProductVariant", b =>
+            {
+                b.HasOne("TestFirstProject.Models.Product", "Product").WithMany("Variants").HasForeignKey("ProductId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                b.Navigation("Product");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.StockEntry", b =>
+            {
+                b.HasOne("TestFirstProject.Models.ProductVariant", "ProductVariant").WithMany("StockEntries").HasForeignKey("ProductVariantId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                b.HasOne("TestFirstProject.Models.Warehouse", "Warehouse").WithMany("StockEntries").HasForeignKey("WarehouseId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                b.Navigation("ProductVariant");
+                b.Navigation("Warehouse");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.InventoryTransaction", b =>
+            {
+                b.HasOne("TestFirstProject.Models.StockEntry", "StockEntry").WithMany().HasForeignKey("StockEntryId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                b.Navigation("StockEntry");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.RestockRequest", b =>
+            {
+                b.HasOne("TestFirstProject.Models.ProductVariant", "ProductVariant").WithMany().HasForeignKey("ProductVariantId").OnDelete(DeleteBehavior.Restrict).IsRequired();
+                b.HasOne("TestFirstProject.Models.Warehouse", "Warehouse").WithMany().HasForeignKey("WarehouseId").OnDelete(DeleteBehavior.Restrict).IsRequired();
+                b.Navigation("ProductVariant");
+                b.Navigation("Warehouse");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.ProductReview", b =>
+            {
+                b.HasOne("TestFirstProject.Models.Product", "Product").WithMany("Reviews").HasForeignKey("ProductId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                b.HasOne("TestFirstProject.Models.AppUser", "User").WithMany().HasForeignKey("UserId").OnDelete(DeleteBehavior.Restrict).IsRequired();
+                b.Navigation("Product");
+                b.Navigation("User");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.PriceHistory", b =>
+            {
+                b.HasOne("TestFirstProject.Models.Product", "Product").WithMany("PriceHistories").HasForeignKey("ProductId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                b.Navigation("Product");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.Cart", b =>
+            {
+                b.HasOne("TestFirstProject.Models.AppUser", "User").WithMany().HasForeignKey("UserId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                b.HasOne("TestFirstProject.Models.Coupon", "AppliedCoupon").WithMany().HasForeignKey("AppliedCouponId").OnDelete(DeleteBehavior.SetNull);
+                b.Navigation("User");
+                b.Navigation("AppliedCoupon");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.CartItem", b =>
+            {
+                b.HasOne("TestFirstProject.Models.Cart", "Cart").WithMany("Items").HasForeignKey("CartId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                b.HasOne("TestFirstProject.Models.ProductVariant", "ProductVariant").WithMany().HasForeignKey("ProductVariantId").OnDelete(DeleteBehavior.Restrict).IsRequired();
+                b.Navigation("Cart");
+                b.Navigation("ProductVariant");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.Order", b =>
+            {
+                b.HasOne("TestFirstProject.Models.AppUser", "User").WithMany().HasForeignKey("UserId").OnDelete(DeleteBehavior.Restrict).IsRequired();
+                b.HasOne("TestFirstProject.Models.Coupon", "Coupon").WithMany().HasForeignKey("CouponId").OnDelete(DeleteBehavior.SetNull);
+                b.Navigation("User");
+                b.Navigation("Coupon");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.OrderItem", b =>
+            {
+                b.HasOne("TestFirstProject.Models.Order", "Order").WithMany("Items").HasForeignKey("OrderId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                b.HasOne("TestFirstProject.Models.ProductVariant", "ProductVariant").WithMany().HasForeignKey("ProductVariantId").OnDelete(DeleteBehavior.Restrict).IsRequired();
+                b.Navigation("Order");
+                b.Navigation("ProductVariant");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.OrderStatusHistory", b =>
+            {
+                b.HasOne("TestFirstProject.Models.Order", "Order").WithMany("StatusHistory").HasForeignKey("OrderId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                b.Navigation("Order");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.Payment", b =>
+            {
+                b.HasOne("TestFirstProject.Models.Order", "Order").WithMany("Payments").HasForeignKey("OrderId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                b.Navigation("Order");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.PaymentAttempt", b =>
+            {
+                b.HasOne("TestFirstProject.Models.Payment", "Payment").WithMany("Attempts").HasForeignKey("PaymentId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                b.Navigation("Payment");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.Shipment", b =>
+            {
+                b.HasOne("TestFirstProject.Models.Order", "Order").WithOne("Shipment").HasForeignKey("TestFirstProject.Models.Shipment", "OrderId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                b.Navigation("Order");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.CouponUsage", b =>
+            {
+                b.HasOne("TestFirstProject.Models.Coupon", "Coupon").WithMany("Usages").HasForeignKey("CouponId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                b.Navigation("Coupon");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.LoyaltyTransaction", b =>
+            {
+                b.HasOne("TestFirstProject.Models.AppUser", "User").WithMany().HasForeignKey("UserId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                b.Navigation("User");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.FlashSale", b =>
+            {
+                b.HasOne("TestFirstProject.Models.Product", "Product").WithMany("FlashSales").HasForeignKey("ProductId").OnDelete(DeleteBehavior.Cascade).IsRequired();
+                b.Navigation("Product");
+            });
+
+            // === Navigation Collections ===
+
             modelBuilder.Entity("TestFirstProject.Models.AppUser", b =>
             {
                 b.Navigation("ConversationParticipants");
@@ -361,6 +838,54 @@ namespace TestFirstProject.Migrations
                 b.Navigation("Participants");
                 b.Navigation("Messages");
             });
+
+            modelBuilder.Entity("TestFirstProject.Models.Category", b =>
+            {
+                b.Navigation("Products");
+                b.Navigation("SubCategories");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.Product", b =>
+            {
+                b.Navigation("Variants");
+                b.Navigation("Reviews");
+                b.Navigation("PriceHistories");
+                b.Navigation("FlashSales");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.ProductVariant", b =>
+            {
+                b.Navigation("StockEntries");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.Warehouse", b =>
+            {
+                b.Navigation("StockEntries");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.Cart", b =>
+            {
+                b.Navigation("Items");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.Order", b =>
+            {
+                b.Navigation("Items");
+                b.Navigation("StatusHistory");
+                b.Navigation("Payments");
+                b.Navigation("Shipment");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.Payment", b =>
+            {
+                b.Navigation("Attempts");
+            });
+
+            modelBuilder.Entity("TestFirstProject.Models.Coupon", b =>
+            {
+                b.Navigation("Usages");
+            });
+
 #pragma warning restore 612, 618
         }
     }
