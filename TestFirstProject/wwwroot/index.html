@@ -1,12 +1,13 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="style.css" rel="stylesheet" />
     <script src="addUser.js" defer></script>
     <script src="v.js" defer></script>
-    <title>User(CRUD-Project)</title>
+    <title>User Management</title>
 </head>
 
 <body>
@@ -16,11 +17,13 @@
 
             <h2 class="formHeader">User Form</h2>
             <div>
-                <input type="text" name="name" id="name" placeholder="NAME.." required class="formInput nameInput" maxlength="14">
+                <label for="name" class="sr-only">Name</label>
+                <input type="text" name="name" id="name" placeholder="NAME.." required class="formInput nameInput" maxlength="14" aria-label="Name">
                 <div class="name-output"></div>
             </div>
             <div>
-                <input type="number" name="age" id="age" placeholder="AGE.." required class="formInput ageInput">
+                <label for="age" class="sr-only">Age</label>
+                <input type="number" name="age" id="age" placeholder="AGE.." required class="formInput ageInput" min="0" max="150" aria-label="Age">
                 <div class="age-output"></div>
             </div>
 
@@ -34,14 +37,13 @@
         <div id="usersContainer">
 
             <div class="userSearchContainer">
-                <input type="text" class="userSearch" placeholder="Search users.." maxlength="25">
+                <label for="userSearch" class="sr-only">Search users</label>
+                <input type="search" id="userSearch" class="userSearch" placeholder="Search for users..." maxlength="25" aria-label="Search users">
                 <div class="output-overlay"></div>
-                <img src="images/GG.png" alt="..." class="searchIcon" />
+                <img src="images/GG.png" alt="Search" class="searchIcon" />
             </div>
 
-            <div class="orderType">
-
-            </div>
+            <div class="orderType"></div>
 
 
         </div>
