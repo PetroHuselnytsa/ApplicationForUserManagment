@@ -70,7 +70,7 @@ namespace TestFirstProject.Services.Implementations
 
             var user = await _context.AppUsers.FirstOrDefaultAsync(u => u.Email == request.Email);
             if (user == null || !BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
-                throw new AppException("Invalid email or password.", 401);
+                throw new UnauthorizedException("Invalid email or password.");
 
             var token = _tokenService.GenerateToken(user);
             return new AuthResponse(token, user.Id, user.Username, user.Role.ToString());
