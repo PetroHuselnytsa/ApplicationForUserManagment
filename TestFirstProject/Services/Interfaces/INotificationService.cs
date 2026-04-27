@@ -23,9 +23,6 @@ namespace TestFirstProject.Services.Interfaces
         /// <summary>Delete a notification.</summary>
         Task DeleteNotificationAsync(Guid userId, Guid notificationId);
 
-        /// <summary>Check if user has a specific notification type enabled.</summary>
-        Task<bool> IsNotificationTypeEnabledAsync(Guid userId, NotificationType type);
-
         /// <summary>Update notification preferences for a user.</summary>
         Task UpdatePreferencesAsync(Guid userId, UpdateNotificationPreferenceRequest request);
 
