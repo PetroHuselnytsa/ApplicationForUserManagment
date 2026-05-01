@@ -26,6 +26,8 @@ namespace TestFirstProject.Services.Implementations
         {
             var claims = new[]
             {
+                // jti provides a unique ID per token, enabling server-side revocation
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Name, user.Username),
                 new Claim(ClaimTypes.Email, user.Email),

@@ -1,10 +1,12 @@
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using TestFirstProject.DTOs;
 using TestFirstProject.Services.Interfaces;
 
 namespace TestFirstProject.Endpoints
 {
     /// <summary>
-    /// Maps authentication endpoints: register and login.
+    /// Maps authentication endpoints: register, login, and logout.
     /// </summary>
     public static class AuthEndpoints
     {
@@ -28,6 +30,25 @@ namespace TestFirstProject.Endpoints
             })
             .WithName("Login")
             .AllowAnonymous();
+
+            // Requires a valid Bearer token; revokes it so subsequent requests with the same token are rejected.
+            group.MapPost("/logout", async (HttpContext httpContext, IAuthService authService) =>
+            {
+                var jti = httpContext.User.FindFirstValue(JwtRegisteredClaimNames.Jti);
+                if (string.IsNullOrEmpty(jti))
+                    return Results.Unauthorized();
+
+                // Parse the token expiry from the standard "exp" claim (Unix timestamp)
+                var expClaim = httpContext.User.FindFirstValue(JwtRegisteredClaimNames.Exp);
+                var tokenExpiry = expClaim is not null && long.TryParse(expClaim, out var expUnix)
+                    ? DateTimeOffset.FromUnixTimeSeconds(expUnix).UtcDateTime
+                    : DateTime.UtcNow;
+
+                await authService.LogoutAsync(jti, tokenExpiry);
+                return Results.NoContent();
+            })
+            .WithName("Logout")
+            .RequireAuthorization();
         }
     }
 }
