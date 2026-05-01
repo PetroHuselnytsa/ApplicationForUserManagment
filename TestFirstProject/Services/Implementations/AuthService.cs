@@ -8,17 +8,19 @@ using TestFirstProject.Services.Interfaces;
 namespace TestFirstProject.Services.Implementations
 {
     /// <summary>
-    /// Handles user registration and login with BCrypt password hashing.
+    /// Handles user registration, login, and logout with BCrypt password hashing.
     /// </summary>
     public class AuthService : IAuthService
     {
         private readonly PersonsContext _context;
         private readonly ITokenService _tokenService;
+        private readonly ITokenRevocationService _revocationService;
 
-        public AuthService(PersonsContext context, ITokenService tokenService)
+        public AuthService(PersonsContext context, ITokenService tokenService, ITokenRevocationService revocationService)
         {
             _context = context;
             _tokenService = tokenService;
+            _revocationService = revocationService;
         }
 
         public async Task<AuthResponse> RegisterAsync(RegisterRequest request)
@@ -74,6 +76,11 @@ namespace TestFirstProject.Services.Implementations
 
             var token = _tokenService.GenerateToken(user);
             return new AuthResponse(token, user.Id, user.Username, user.Role.ToString());
+        }
+
+        public async Task LogoutAsync(string jti, DateTime tokenExpiry)
+        {
+            await _revocationService.RevokeAsync(jti, tokenExpiry);
         }
 
         private static bool IsValidEmail(string email)

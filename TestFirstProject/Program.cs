@@ -48,9 +48,9 @@ builder.Services.AddAuthentication(options =>
         ClockSkew = TimeSpan.Zero
     };
 
-    // SignalR: read JWT from query string for WebSocket connections
     options.Events = new JwtBearerEvents
     {
+        // SignalR: read JWT from query string for WebSocket connections
         OnMessageReceived = context =>
         {
             var accessToken = context.Request.Query["access_token"];
@@ -63,6 +63,25 @@ builder.Services.AddAuthentication(options =>
             }
 
             return Task.CompletedTask;
+        },
+
+        // Revocation check: reject any token whose JTI has been logged out
+        OnTokenValidated = async context =>
+        {
+            var jti = context.Principal?.FindFirst(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Jti)?.Value;
+            if (string.IsNullOrEmpty(jti))
+            {
+                context.Fail("Token is missing the jti claim.");
+                return;
+            }
+
+            var revocationService = context.HttpContext.RequestServices
+                .GetRequiredService<ITokenRevocationService>();
+
+            if (await revocationService.IsRevokedAsync(jti))
+            {
+                context.Fail("Token has been revoked.");
+            }
         }
     };
 });
@@ -77,6 +96,7 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Progr
 
 // --- Application Services ---
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<ITokenRevocationService, TokenRevocationService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
