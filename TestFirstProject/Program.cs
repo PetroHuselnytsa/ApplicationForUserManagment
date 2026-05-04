@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Telegram.Bot;
 using TestFirstProject;
 using TestFirstProject.Contexts;
 using TestFirstProject.Endpoints;
@@ -13,8 +14,26 @@ using TestFirstProject.Middleware;
 using TestFirstProject.Services.Implementations;
 using TestFirstProject.Services.Interfaces;
 using TestFirstProject.Settings;
+using TestFirstProject.TelegramBot;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// --- Telegram Bot ---
+builder.Services.Configure<TelegramBotSettings>(
+    builder.Configuration.GetSection(TelegramBotSettings.SectionName));
+
+builder.Services.AddSingleton<ITelegramBotClient>(_ =>
+{
+    var token = builder.Configuration[$"{TelegramBotSettings.SectionName}:Token"];
+    if (string.IsNullOrWhiteSpace(token))
+        throw new InvalidOperationException(
+            $"Telegram bot token is missing. Set '{TelegramBotSettings.SectionName}:Token' in appsettings.json or via an environment variable.");
+    return new TelegramBotClient(token);
+});
+
+builder.Services.AddSingleton<WatchlistStorage>();
+builder.Services.AddSingleton<BotUpdateHandler>();
+builder.Services.AddHostedService<BotHostedService>();
 
 // --- Database ---
 var connectionString = builder.Configuration.GetConnectionString("PostgresConnection");
