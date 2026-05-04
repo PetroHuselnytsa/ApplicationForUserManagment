@@ -16,6 +16,9 @@ namespace TestFirstProject.Contexts
         public DbSet<Notification> Notifications { get; set; } = null!;
         public DbSet<NotificationPreference> NotificationPreferences { get; set; } = null!;
 
+        // Book library
+        public DbSet<Book> Books { get; set; } = null!;
+
         public PersonsContext(DbContextOptions<PersonsContext> options) : base(options)
         {
         }
@@ -32,6 +35,9 @@ namespace TestFirstProject.Contexts
             modelBuilder.ApplyConfiguration(new MessageConfiguration());
             modelBuilder.ApplyConfiguration(new NotificationConfiguration());
             modelBuilder.ApplyConfiguration(new NotificationPreferenceConfiguration());
+
+            // Book library
+            modelBuilder.ApplyConfiguration(new BookConfiguration());
         }
     }
 }
