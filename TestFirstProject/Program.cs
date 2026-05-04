@@ -10,6 +10,8 @@ using TestFirstProject.Contexts;
 using TestFirstProject.Endpoints;
 using TestFirstProject.Hubs;
 using TestFirstProject.Middleware;
+using TestFirstProject.Repositories.Implementations;
+using TestFirstProject.Repositories.Interfaces;
 using TestFirstProject.Services.Implementations;
 using TestFirstProject.Services.Interfaces;
 using TestFirstProject.Settings;
@@ -74,6 +76,9 @@ builder.Services.AddSignalR();
 
 // --- MediatR (domain events) ---
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
+
+// --- Generic Repository ---
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 // --- Application Services ---
 builder.Services.AddScoped<ITokenService, TokenService>();
@@ -145,10 +150,11 @@ app.MapDelete("/api/users/{id}", async (string id, OperationsRepository operatio
     await operations.DeletePerson(response, id);
 });
 
-// --- New endpoints: Auth, Conversations, Notifications ---
+// --- New endpoints: Auth, Conversations, Notifications, Books ---
 app.MapAuthEndpoints();
 app.MapConversationEndpoints();
 app.MapNotificationEndpoints();
+app.MapBookEndpoints();
 
 // --- SignalR Hub ---
 app.MapHub<ChatHub>("/hubs/chat");
