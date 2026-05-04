@@ -11,6 +11,8 @@ using TestFirstProject.Endpoints;
 using TestFirstProject.Hubs;
 using TestFirstProject.Middleware;
 using TestFirstProject.Services.Implementations;
+using TestFirstProject.Models;
+using TestFirstProject.Repositories;
 using TestFirstProject.Services.Interfaces;
 using TestFirstProject.Settings;
 
@@ -82,6 +84,10 @@ builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<ISignalRNotifier, SignalRNotifier>();
 
+// --- Book Library Services ---
+builder.Services.AddScoped<IGenericRepository<Book>, GenericRepository<Book>>();
+builder.Services.AddScoped<IBookService, BookService>();
+
 // --- Rate Limiting ---
 builder.Services.AddRateLimiter(options =>
 {
@@ -149,6 +155,7 @@ app.MapDelete("/api/users/{id}", async (string id, OperationsRepository operatio
 app.MapAuthEndpoints();
 app.MapConversationEndpoints();
 app.MapNotificationEndpoints();
+app.MapBookEndpoints();
 
 // --- SignalR Hub ---
 app.MapHub<ChatHub>("/hubs/chat");
