@@ -16,6 +16,14 @@ namespace TestFirstProject.Contexts
         public DbSet<Notification> Notifications { get; set; } = null!;
         public DbSet<NotificationPreference> NotificationPreferences { get; set; } = null!;
 
+        // Book Management entities
+        public DbSet<Book> Books { get; set; } = null!;
+        public DbSet<Author> Authors { get; set; } = null!;
+        public DbSet<Category> Categories { get; set; } = null!;
+        public DbSet<BookAuthor> BookAuthors { get; set; } = null!;
+        public DbSet<BookCategory> BookCategories { get; set; } = null!;
+        public DbSet<Loan> Loans { get; set; } = null!;
+
         public PersonsContext(DbContextOptions<PersonsContext> options) : base(options)
         {
         }
@@ -32,6 +40,14 @@ namespace TestFirstProject.Contexts
             modelBuilder.ApplyConfiguration(new MessageConfiguration());
             modelBuilder.ApplyConfiguration(new NotificationConfiguration());
             modelBuilder.ApplyConfiguration(new NotificationPreferenceConfiguration());
+
+            // Book Management configurations
+            modelBuilder.ApplyConfiguration(new BookConfiguration());
+            modelBuilder.ApplyConfiguration(new AuthorConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new BookAuthorConfiguration());
+            modelBuilder.ApplyConfiguration(new BookCategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new LoanConfiguration());
         }
     }
 }

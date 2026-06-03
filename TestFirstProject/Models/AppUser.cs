@@ -20,5 +20,8 @@ namespace TestFirstProject.Models
         public ICollection<Message> SentMessages { get; set; } = new List<Message>();
         public ICollection<Notification> Notifications { get; set; } = new List<Notification>();
         public NotificationPreference? NotificationPreference { get; set; }
+
+        // Book Management
+        public ICollection<Loan> Loans { get; set; } = new List<Loan>();
     }
 }
