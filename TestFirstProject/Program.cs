@@ -82,6 +82,12 @@ builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<ISignalRNotifier, SignalRNotifier>();
 
+// Book Management Services
+builder.Services.AddScoped<IBookService, BookService>();
+builder.Services.AddScoped<IAuthorService, AuthorService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ILoanService, LoanService>();
+
 // --- Rate Limiting ---
 builder.Services.AddRateLimiter(options =>
 {
@@ -149,6 +155,12 @@ app.MapDelete("/api/users/{id}", async (string id, OperationsRepository operatio
 app.MapAuthEndpoints();
 app.MapConversationEndpoints();
 app.MapNotificationEndpoints();
+
+// Book Management endpoints
+app.MapBookEndpoints();
+app.MapAuthorEndpoints();
+app.MapCategoryEndpoints();
+app.MapLoanEndpoints();
 
 // --- SignalR Hub ---
 app.MapHub<ChatHub>("/hubs/chat");
