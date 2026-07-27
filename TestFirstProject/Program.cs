@@ -81,6 +81,7 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<ISignalRNotifier, SignalRNotifier>();
+builder.Services.AddScoped<ISnakeGameService, SnakeGameService>();
 
 // --- Rate Limiting ---
 builder.Services.AddRateLimiter(options =>
@@ -149,6 +150,7 @@ app.MapDelete("/api/users/{id}", async (string id, OperationsRepository operatio
 app.MapAuthEndpoints();
 app.MapConversationEndpoints();
 app.MapNotificationEndpoints();
+app.MapSnakeGameEndpoints();
 
 // --- SignalR Hub ---
 app.MapHub<ChatHub>("/hubs/chat");
