@@ -62,7 +62,7 @@ body {
 }
 
 .buttonA {
-    background-color: lightgreen;
+    background-color: orange;
 }
 
 .buttonR {
@@ -70,10 +70,10 @@ body {
 }
 
 .buttonA:hover {
-    background-color: #32cd32; 
-    transform: scale(1.2); 
-    border-radius: 2px; 
-    box-shadow: 0 5px 15px rgba(50, 205, 50, 0.4); 
+    background-color: #e68a00;
+    transform: scale(1.2);
+    border-radius: 2px;
+    box-shadow: 0 5px 15px rgba(230, 138, 0, 0.4);
 }
 
 .buttonR:hover {
