@@ -16,6 +16,10 @@ namespace TestFirstProject.Contexts
         public DbSet<Notification> Notifications { get; set; } = null!;
         public DbSet<NotificationPreference> NotificationPreferences { get; set; } = null!;
 
+        // Snake game entities
+        public DbSet<GameScore> GameScores { get; set; } = null!;
+        public DbSet<PlayerRating> PlayerRatings { get; set; } = null!;
+
         public PersonsContext(DbContextOptions<PersonsContext> options) : base(options)
         {
         }
@@ -32,6 +36,10 @@ namespace TestFirstProject.Contexts
             modelBuilder.ApplyConfiguration(new MessageConfiguration());
             modelBuilder.ApplyConfiguration(new NotificationConfiguration());
             modelBuilder.ApplyConfiguration(new NotificationPreferenceConfiguration());
+
+            // Snake game configurations
+            modelBuilder.ApplyConfiguration(new GameScoreConfiguration());
+            modelBuilder.ApplyConfiguration(new PlayerRatingConfiguration());
         }
     }
 }
