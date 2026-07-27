@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link href="snake.css" rel="stylesheet" />
+    <script src="snake.js" defer></script>
+    <title>Snake Game</title>
+</head>
+
+<body>
+    <div class="page-header">
+        <h1>Snake Game</h1>
+        <p id="userGreeting" class="hidden"></p>
+    </div>
+
+    <!-- Login Section -->
+    <div id="loginSection">
+        <div class="login-container">
+            <h3>Login to Play</h3>
+            <input type="email" id="loginEmail" placeholder="Email" />
+            <input type="password" id="loginPassword" placeholder="Password" />
+            <button onclick="handleLogin()">Login</button>
+            <p id="loginError" class="login-error hidden"></p>
+            <p style="font-size: 12px; margin-top: 10px; color: gray;">Don't have an account? Register via the API first.</p>
+        </div>
+    </div>
+
+    <!-- Game Section (hidden until login) -->
+    <div id="gameSection" class="hidden">
+
+        <!-- Setup Area -->
+        <div id="setupArea" style="text-align: center; margin-bottom: 15px;">
+            <div class="difficulty-selector">
+                <button class="diff-btn easy selected" data-difficulty="Easy" onclick="selectDifficulty(this)">Easy</button>
+                <button class="diff-btn medium" data-difficulty="Medium" onclick="selectDifficulty(this)">Medium</button>
+                <button class="diff-btn hard" data-difficulty="Hard" onclick="selectDifficulty(this)">Hard</button>
+            </div>
+            <button class="start-btn" onclick="startGame()">Start Game</button>
+        </div>
+
+        <div class="game-wrapper">
+            <!-- Game Canvas -->
+            <div class="game-container">
+                <div class="game-hud">
+                    <div class="hud-item">Score: <span id="hudScore">0</span></div>
+                    <div class="hud-item">Combo: <span id="hudCombo">x1</span></div>
+                    <div class="hud-item">Time: <span id="hudTime">0s</span></div>
+                    <div class="hud-item">Enemies: <span id="hudEnemies">0</span></div>
+                </div>
+                <canvas id="gameCanvas" width="600" height="400"></canvas>
+
+                <!-- Game Over Overlay -->
+                <div id="gameOverOverlay" class="game-over-overlay hidden">
+                    <h2>Game Over</h2>
+                    <p id="finalScore" class="game-over-stats"></p>
+                    <p id="finalEnemies" class="game-over-stats"></p>
+                    <p id="finalCombo" class="game-over-stats"></p>
+                    <p id="ratingChangeDisplay" class="game-over-stats"></p>
+                    <button class="start-btn" onclick="resetGame()" style="margin-top: 15px;">Play Again</button>
+                </div>
+            </div>
+
+            <!-- Side Panel -->
+            <div class="side-panel">
+                <!-- Player Stats -->
+                <div class="stats-card">
+                    <h3>Your Stats</h3>
+                    <div class="stat-row"><span>Rating</span><span id="statRating" class="stat-value">1000</span></div>
+                    <div class="stat-row"><span>Games Played</span><span id="statGames" class="stat-value">0</span></div>
+                    <div class="stat-row"><span>Highest Score</span><span id="statHighScore" class="stat-value">0</span></div>
+                </div>
+
+                <!-- Leaderboard -->
+                <div class="leaderboard-card">
+                    <h3>Leaderboard</h3>
+                    <div class="leaderboard-tabs">
+                        <button class="tab-btn active" data-period="all">All Time</button>
+                        <button class="tab-btn" data-period="daily">Daily</button>
+                        <button class="tab-btn" data-period="weekly">Weekly</button>
+                    </div>
+                    <table class="leaderboard-table">
+                        <thead><tr><th>#</th><th>Player</th><th>Score</th><th>Diff</th></tr></thead>
+                        <tbody id="leaderboardBody">
+                            <tr><td colspan="4">Loading...</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <button id="prevPageBtn" onclick="changePage(-1)" disabled>&lt; Prev</button>
+                        <span id="pageInfo">1</span>
+                        <button id="nextPageBtn" onclick="changePage(1)">Next &gt;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
